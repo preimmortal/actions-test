@@ -1,3 +1,3 @@
 from debian:stable
-COPY actions-test /app
+COPY app /app
 CMD [ "/app" ]
