@@ -47,7 +47,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: preimmortal/actions-test:latest
+          tags: ghcr.io/preimmortal/actions-test:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
