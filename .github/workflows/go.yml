@@ -39,7 +39,7 @@ jobs:
         with:
           repository: ghcr.io/preimmortal/actions-test
           username: ${{ secrets.GHCR_USERNAME }}
-          password: ${{ secrets.GHCR_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push
         id: docker_build
