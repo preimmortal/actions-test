@@ -11,38 +11,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
     
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.15
-
-    - name: Build
-      run: go build -v ./...
-
-    - name: Test
-      run: go test -v ./...
-
-    - name: Build Binary
-      run: GOOS=linux GOARCH=amd64 go build -o app
-
-    - name: Upload App Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: app
-        path: app
-        retention-days: 1
-
-
-  builddocker:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Download app artifact
-        uses: actions/download-artifact@v2
+      - name: Set up Go
+        uses: actions/setup-go@v2
         with:
-          name: app
+          go-version: 1.15
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Test
+        run: go test -v ./...
+
+      - name: Build Binary
+        run: GOOS=linux GOARCH=amd64 go build -o app
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
