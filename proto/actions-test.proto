@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package actions;
+
+option go_package = "github.com/preimmortal/actions-test/proto";
+
+// The actions service definition.
+service Actions {
+  // Echoes back the request
+  rpc ActionEcho (EchoRequest) returns (EchoReply) {}
+}
+
+// The request message
+message EchoRequest {
+  string input = 1;
+}
+
+// The response message
+message EchoReply {
+  string message = 1;
+}
