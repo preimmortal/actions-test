@@ -8,9 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
+        # Docker Hub image
         image: postgres
+        # Provide the password for postgres
         env:
-          POSTGRES_PASSWORD=pre
+          POSTGRES_USERNAME: pre
+          POSTGRES_PASSWORD: pre
+        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
