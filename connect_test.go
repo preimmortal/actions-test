@@ -23,3 +23,14 @@ func TestDBConnection(t *testing.T) {
 	db.Create(&Product{Code: "D42", Price: 100})
 	t.Log("Finished Database Connection Test")
 }
+
+func TestDBConnectionTwo(t *testing.T) {
+	dsn := "host=localhost user=pre password=pre dbname=pre port=3001 sslmode=disable TimeZone=America/Los_Angeles"
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	if err != nil {
+		t.Fatal("Could not connect to Database")
+	}
+	db.AutoMigrate(&Product{})
+	db.Create(&Product{Code: "D42", Price: 100})
+	t.Log("Finished Database Connection Test")
+}
