@@ -28,6 +28,9 @@ func serve(port string) {
 	log.Printf("Starting Server")
 	log.Printf("Listening on Port %v", port)
 	s := grpc.NewServer()
+
+	log.Printf("Logging in to Postgres")
+
 	pb.RegisterActionsServer(s, &Server{})
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
