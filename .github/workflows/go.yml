@@ -10,7 +10,6 @@ jobs:
       postgres:
         image: postgres
         env:
-          POSTGRES_USERNAME=pre
           POSTGRES_PASSWORD=pre
         options: >-
           --health-cmd pg_isready
